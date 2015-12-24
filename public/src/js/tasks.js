@@ -3,9 +3,9 @@ function displayTasks(name,tasks){
 	var $tasks = $('.tasks#'+name+" .content").droppable({
 		greedy: true,
 		drop : function(data){
-			if($(data.srcElement.parentElement).attr('id') != $(data.target).attr('id')){
+			if($(data.srcElement.parentElement).attr('id') != $(data.target).attr('id') && $(data.srcElement).hasClass('task')){
 				socket.emit('move',{
-					'element':$(data.srcElement).attr('id'),
+					'id':$(data.srcElement).attr('id'),
 					'from':$(data.srcElement.parentElement).attr('id'),
 					'to':$(data.target).attr('id')
 				});

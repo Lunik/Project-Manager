@@ -163,7 +163,7 @@ h1.name{
 	top: 25px;
 	left: 0px;
 	padding: 10px;
-	background-color: #888;
+	background-color: #777;
 	border-radius: 5px;
 }
 
@@ -173,6 +173,22 @@ h1.name{
 	z-index: 1;
 }
 
+/* removable */
+.task .removeTask{
+	display: none;
+}
+.task .removeTask:hover{
+	color: #f7a253;
+}
+.task .removeTask:active{
+	color: #f75353;
+}
+.task.removable .removeTask{
+	display: block;
+}
 
+.task.removable{
+	background-color: #f75353 !important;
+}
 
 

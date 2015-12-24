@@ -7,11 +7,36 @@ function displayTask(id,task){
 	}
 	var $description = $('<p>').addClass('description').text(task.description).appendTo($task);
 
+	//Show description
 	$task.hover(function(){
-			$description.addClass('active');
-		},function(){
-			$description.removeClass('active');
-		})
+		$description.addClass('active');
+	},function(){
+		$description.removeClass('active');
+	});
+
+	//Bind long press
+	var longPressTimeout = 0;
+	$task.mousedown(function(e) {
+	    longPressTimeout = setTimeout(function(){
+	    	$task.addClass('removable');
+	    	$description.removeClass('active');
+	    }, 1000);
+	}).mouseup(function(){
+		clearTimeout(longPressTimeout);
+	}).mouseleave(function() {
+	    clearTimeout(longPressTimeout);
+	    $task.removeClass('removable');
+	});
+
+	//remove but
+	$removeBut = $('<div>').addClass('removeTask').attr('id',id).text("x").appendTo($task);
+	$removeBut.click(function(){
+		socket.emit('remove task',{
+			'from':$(this).parent().parent().attr('id'),
+			'id':$(this).attr('id')
+		});
+	});
+
 	return $task;
 }
 
@@ -53,3 +78,4 @@ $('.newtask').click(function(){
 	p.init(null, null, null, null, "Nouvelle Tâche", newTaskHtml(),true);
 	p.draw();
 });
+

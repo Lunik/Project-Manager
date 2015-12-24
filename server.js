@@ -83,18 +83,24 @@ io.on('connection', function (socket) {
 
 	socket.on('move', function(data){
 		if(data.to != data.from){
-			Projects[socket.project].tasks[data.to][data.element] = Projects[socket.project].tasks[data.from][data.element];
-			delete Projects[socket.project].tasks[data.from][data.element];
+			Projects[socket.project].tasks[data.to][data.id] = Projects[socket.project].tasks[data.from][data.id];
+			delete Projects[socket.project].tasks[data.from][data.id];
 			socket.broadcast.to(socket.project).emit('move',data);
 			saveProject(Projects[socket.project]);
 		}
 	});
 
 	socket.on('new task', function(data){
-		console.log(data);
 		Projects[socket.project].tasks[data.to][data.id] = data.task;
 		socket.broadcast.to(socket.project).emit('new task',data);
 		socket.emit('new task',data);
+		saveProject(Projects[socket.project]);
+	});
+
+	socket.on('remove task', function(data){
+		delete Projects[socket.project].tasks[data.from][data.id];
+		socket.broadcast.to(socket.project).emit('remove task',data);
+		socket.emit('remove task',data);
 		saveProject(Projects[socket.project]);
 	});
 });
