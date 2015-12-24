@@ -1,6 +1,5 @@
 
 function displayTasks(name,tasks){
-	console.log(name);
 	var $tasks = $('.tasks#'+name+" .content").droppable({
 		greedy: true,
 		drop : function(data){

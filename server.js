@@ -22,6 +22,16 @@ var Users = {
 };
 
 var Projects = {};
+Projects['default'] = {
+			"name":'Default',
+			"tasks":{
+				"normal":{},
+				"urgent":{},
+				"very-urgent":{},
+				"done":{}
+			}
+		}
+saveProject(Projects['default']);
 loadProjects();
 
 io.on('connection', function (socket) {
@@ -48,9 +58,10 @@ io.on('connection', function (socket) {
 		}
 	});
 
-	socket.on('new project', function(project){
+	socket.on('new project', function(name){
+		var project = name.toLowerCase()
 		Projects[project] = {
-			"name":project,
+			"name":name,
 			"tasks":{
 				"normal":{},
 				"urgent":{},
