@@ -1,17 +1,23 @@
 
 function displayTask(id,task){
-	var $task = $('<div>').addClass('task').attr('id',id).text(task.name).draggable({
-		revert : true
-	});
+	var $task = $('<div>').addClass('task').attr('id',id).text(task.name)
+		.draggable({ revert : true });
 	if(task.owner != ""){
 		$task.addClass('owned');
 	}
+	var $description = $('<p>').addClass('description').text(task.description).appendTo($task);
+
+	$task.hover(function(){
+			$description.addClass('active');
+		},function(){
+			$description.removeClass('active');
+		})
 	return $task;
 }
 
 function newTask(name,description,to){
 	var task = {};
-	task.name = name;
+	task.name = name.substring(1,15);
 	task.owner = "";
 	task.description = description;
 

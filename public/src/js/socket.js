@@ -2,6 +2,7 @@ socket.on('login', function (data) {
 	if(data){
 		$(window).attr('location',"#"+data.project.name);
 		displayProject(data.project.data);
+		notifyTitle(data.project.data.name);
 	}
 });
 

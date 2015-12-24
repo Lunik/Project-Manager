@@ -132,6 +132,8 @@ h1.name{
 	border-radius: 5px;
 
 	cursor: pointer;
+
+	vertical-align: top;
 }
 
 /* new task popup html */
@@ -152,4 +154,25 @@ h1.name{
 	max-height: 100px;
 	min-height: 100px;
 }
+
+/* task description */
+
+.task .description{
+	display: none;
+
+	top: 25px;
+	left: 0px;
+	padding: 10px;
+	background-color: #888;
+	border-radius: 5px;
+}
+
+.task .description.active{
+	display: block;
+	position: absolute;
+	z-index: 1;
+}
+
+
+
 
