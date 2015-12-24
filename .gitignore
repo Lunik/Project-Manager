@@ -7,3 +7,5 @@ depot
 node_modules
 
 log*
+
+project/*

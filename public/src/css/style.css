@@ -1,3 +1,7 @@
+/************/
+/*	Default	*/
+/************/
+
 html,body{
 	width: 100%;
 	height: 100%;
@@ -6,22 +10,64 @@ html,body{
 	padding: 0px;
 
 	background-color: #111;
-	color: #FFF;
 }
 
 h1.name{
 	margin: auto;
 	padding: 20px;
 	text-align: center;
+	color: #FFF;
 }
+
+.newproject{
+	display: block;
+
+	margin: 5px;
+
+	text-decoration: none;
+	color: #FFF;
+
+	cursor: pointer;
+}
+.newproject:hover{
+	color: orange;
+}
+.newproject:active{
+	color:red;
+}
+/************/
+/*	  App	*/
+/************/
 
 .container{
 	width: 100%;
-	height: 100%;
+	height: 85%;
 
 	margin: auto;
 	text-align: center;
+	color: #FFF;
 }
+
+.newtask{
+	display: block;
+
+	margin: 5px;
+
+	text-decoration: none;
+	color: #FFF;
+
+	cursor: pointer;
+}
+.newtask:hover{
+	color: orange;
+}
+.newtask:active{
+	color:red;
+}
+
+/************/
+/*	 Tasks	*/
+/************/
 
 .container .tasks{
 	display: inline-block;
@@ -60,11 +106,14 @@ h1.name{
 
 .tasks .content{
 	width: 100%;
-	height: 100%;
+	height: 90%;
 
 	text-align: left;
 }
 
+/************/
+/*	 Task	*/
+/************/
 .tasks .content .task{
 	display: inline-block;
 
@@ -77,4 +126,22 @@ h1.name{
 	cursor: pointer;
 }
 
+/* new task popup html */
+.newTaskHtml{
+	display: inline-block;
+
+}
+
+.newTaskHtml * {
+	display: block;
+	
+	margin: 5px;
+}
+
+.newTaskHtml textarea{
+	min-width: 200px;
+	max-width: 200px;
+	max-height: 100px;
+	min-height: 100px;
+}
 

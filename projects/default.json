@@ -1,1 +1,53 @@
-{"name":"Default","tasks":{"normal":{"plop":{"name":"Plop","owner":"","description":"nothing"},"plop2":{"name":"Plop2","owner":"","description":"nothing"}},"urgent":{"salut":{"name":"Salut","owner":"","description":"nothing"}},"very-urgent":{},"done":{"thefinishedone":{"name":"TheFinishedone","owner":"","description":"nothing"},"cookie":{"name":"Cookies","owner":"","description":"Eat Cookies"}}}}
+{
+    "name": "Default",
+    "tasks": {
+        "normal": {
+            "nul": {
+                "name": "Nul",
+                "owner": "",
+                "description": "plop"
+            },
+            "dqs": {
+                "name": "dqs",
+                "owner": "",
+                "description": "dsq"
+            }
+        },
+        "urgent": {
+            "plop2": {
+                "name": "Plop2",
+                "owner": "",
+                "description": "nothing"
+            },
+            "mec": {
+                "name": "Mec",
+                "owner": "",
+                "description": "rien"
+            }
+        },
+        "very-urgent": {
+            "salut": {
+                "name": "Salut",
+                "owner": "",
+                "description": "nothing"
+            },
+            "cookie": {
+                "name": "Cookies",
+                "owner": "",
+                "description": "Eat Cookies"
+            }
+        },
+        "done": {
+            "thefinishedone": {
+                "name": "TheFinishedone",
+                "owner": "",
+                "description": "nothing"
+            },
+            "plop": {
+                "name": "Plop",
+                "owner": "",
+                "description": "nothing"
+            }
+        }
+    }
+}

@@ -25,14 +25,49 @@ var Projects = {};
 loadProjects();
 
 io.on('connection', function (socket) {
-	socket.project = 'default';
-	socket.join(socket.project);
+	socket.on('change project', function(project){
+		if(Projects[project]){
+			socket.project = project;
+			socket.join(socket.project);
 
-	socket.emit('login',{
-		"project": {
-			"name":socket.project,
-			"data":Projects[socket.project]
+			socket.emit('login',{
+				"project": {
+					"name":socket.project,
+					"data":Projects[socket.project]
+				}
+			});
+		} else {
+			socket.project = 'default';
+			socket.join(socket.project);
+			socket.emit('login',{
+				"project": {
+					"name":socket.project,
+					"data":Projects[socket.project]
+				}
+			});
 		}
+	});
+
+	socket.on('new project', function(project){
+		Projects[project] = {
+			"name":project,
+			"tasks":{
+				"normal":{},
+				"urgent":{},
+				"very-urgent":{},
+				"done":{}
+			}
+		}
+		saveProject(Projects[project]);
+		socket.project = project;
+		socket.join(socket.project);
+
+		socket.emit('login',{
+			"project": {
+				"name":socket.project,
+				"data":Projects[socket.project]
+			}
+		});
 	});
 
 	socket.on('move', function(data){
@@ -68,7 +103,8 @@ function loadProjects(){
 	    			if(err) {
 	        			return log(err);
 	    			}
-	    			Projects[files[key].replace('.json',"")] = JSON.parse(data);
+	    			data = JSON.parse(data);
+	    			Projects[data.name.toLowerCase()] = data;
 	    		});
     		}
     	}

@@ -1,6 +1,8 @@
 socket.on('login', function (data) {
-	window.location = "#"+data.project.name;
-	displayProject(data.project.data);
+	if(data){
+		$(window).attr('location',"#"+data.project.name);
+		displayProject(data.project.data);
+	}
 });
 
 socket.on('move',function(data){
