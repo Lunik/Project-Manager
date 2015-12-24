@@ -75,33 +75,41 @@ h1.name{
 	width: 24%;
 	height: 100%;
 
-	border: 1px solid #FFF;
+	border: 2px solid grey;
+	border-radius: 5px;
 
 	vertical-align: top;
+}
+.tasks#normal{
+	border-color: #675f5f;
+}
+.tasks#urgent{
+	border-color: #f7a253;
+}
+.tasks#very-urgent{
+	border-color: #f75353;
+}
+.tasks#done{
+	border-color: #27AE60;
 }
 
 .tasks h3{
 	margin: auto;
 	padding: 20px;
 
-	border-bottom: 1px solid #FFF;
 	text-align: center;
 }
-
 .tasks#normal h3{
-	color: grey;
+	background-color: #675f5f;
 }
-
 .tasks#urgent h3{
-	color: orange;
+	background-color: #f7a253;
 }
-
 .tasks#very-urgent h3{
-	color: red;
+	background-color: #f75353;
 }
-
 .tasks#done h3{
-	color: green;
+	background-color: #27AE60;
 }
 
 .tasks .content{
