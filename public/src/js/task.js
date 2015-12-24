@@ -16,7 +16,7 @@ function newTask(name,description,to){
 	task.description = description;
 
 	socket.emit('new task',{
-		'id':name.toLowerCase(),
+		'id':name.toLowerCase().replace(/\ /g,"-"),
 		'task':task,
 		'to':to
 	});
