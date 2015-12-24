@@ -5,7 +5,7 @@ var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 var port = process.env.PORT || 5000;
 
-//sauvgarde de fichier
+//sauvegarde de fichier
 var fs = require('fs');
 saveFile("public/log","");
 
