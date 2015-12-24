@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Project Manager</title>
+
+	<meta charset="UTF-8">
+
+	<link rel="stylesheet" href="src/css/style.css">
+</head>
+<body>
+	<h1 class="name"></h1>
+	<div class="container">
+		<div class="tasks" id="normal">
+			<h3>Normal</h3>
+			<div class="content" id="normal">
+			</div>
+		</div>
+		<div class="tasks" id="urgent">
+			<h3>Urgent</h3>
+			<div class="content" id="urgent">
+			</div>
+		</div>
+		<div class="tasks" id="very-urgent">
+			<h3>Très Urgent</h3>
+			<div class="content" id="very-urgent">
+			</div>
+		</div>
+		<div class="tasks" id="done">
+			<h3>Fini</h3>
+			<div class="content" id="done">
+			</div>
+		</div>
+	</div>
+	<script src="src/js/jquery.min.js"></script>
+	<script src="src/js/jquery-ui.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="src/js/app.js"></script>
+</body>
+</html>

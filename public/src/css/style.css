@@ -1,0 +1,80 @@
+html,body{
+	width: 100%;
+	height: 100%;
+
+	margin: 0px;
+	padding: 0px;
+
+	background-color: #111;
+	color: #FFF;
+}
+
+h1.name{
+	margin: auto;
+	padding: 20px;
+	text-align: center;
+}
+
+.container{
+	width: 100%;
+	height: 100%;
+
+	margin: auto;
+	text-align: center;
+}
+
+.container .tasks{
+	display: inline-block;
+
+	width: 24%;
+	height: 100%;
+
+	border: 1px solid #FFF;
+
+	vertical-align: top;
+}
+
+.tasks h3{
+	margin: auto;
+	padding: 20px;
+
+	border-bottom: 1px solid #FFF;
+	text-align: center;
+}
+
+.tasks#normal h3{
+	color: grey;
+}
+
+.tasks#urgent h3{
+	color: orange;
+}
+
+.tasks#very-urgent h3{
+	color: red;
+}
+
+.tasks#done h3{
+	color: green;
+}
+
+.tasks .content{
+	width: 100%;
+	height: 100%;
+
+	text-align: left;
+}
+
+.tasks .content .task{
+	display: inline-block;
+
+	margin: 10px;
+	padding: 10px;
+
+	background-color: #333;
+	border-radius: 5px;
+
+	cursor: pointer;
+}
+
+
