@@ -18,7 +18,7 @@ function displayTask(id,task){
 
 function newTask(name,description,to){
 	var task = {};
-	task.name = name.substring(1,15);
+	task.name = name.substring(0,15);
 	task.owner = "";
 	task.description = description;
 
