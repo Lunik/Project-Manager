@@ -13,30 +13,6 @@ function displayTask(id,task){
 	},function(){
 		$description.removeClass('active');
 	});
-
-	//Bind long press
-	var longPressTimeout = 0;
-	$task.mousedown(function(e) {
-	    longPressTimeout = setTimeout(function(){
-	    	$task.addClass('removable');
-	    	$description.removeClass('active');
-	    }, 1000);
-	}).mouseup(function(){
-		clearTimeout(longPressTimeout);
-	}).mouseleave(function() {
-	    clearTimeout(longPressTimeout);
-	    $task.removeClass('removable');
-	});
-
-	//remove but
-	$removeBut = $('<div>').addClass('removeTask').attr('id',id).text("x").appendTo($task);
-	$removeBut.click(function(){
-		socket.emit('remove task',{
-			'from':$(this).parent().parent().attr('id'),
-			'id':$(this).attr('id')
-		});
-	});
-
 	return $task;
 }
 
@@ -55,18 +31,35 @@ function newTask(name,description,to){
 
 function newTaskHtml(){
 	var $html = $('<div>').addClass('newTaskHtml');
-	var $name = $('<input>').attr('type',"text").attr('name',"name").attr('placeholder',"Nom...").appendTo($html);
+	var $name = $('<input>').attr('type',"text").attr('name',"name").attr('placeholder',"Nom...").appendTo($html)
+		.focus(function(){
+			$(this).css('background-color','')
+		});
 	var $etat = $('<select>').attr('name',"etat")
 		.append($('<option>').attr('value','normal').text("Normal"))
 		.append($('<option>').attr('value','urgent').text("Urgent"))
 		.append($('<option>').attr('value','very-urgent').text("Très Urgent"))
 		.append($('<option>').attr('value','done').text("Fini"))
-		.appendTo($html);
-	var $description = $('<textarea>').attr('name',"description").attr('placeholder',"Description...").appendTo($html);
+		.appendTo($html)
+		.focus(function(){
+			$(this).css('background-color','')
+		});
+	var $description = $('<textarea>').attr('name',"description").attr('placeholder',"Description...").appendTo($html)
+		.focus(function(){
+			$(this).css('background-color','')
+		});
 	$('<input>').attr('type',"submit").attr('value',"Ajouter").appendTo($html).click(function(){
 		if($name.val() && $description.val() && $etat.val()){
 			newTask($name.val(), $description.val(), $etat.val());
 			popupClose();
+		} else {
+			if($name.val() == ""){
+				$name.css('background-color','red');
+			} else if($description.val() == ""){
+				$description.css('background-color','red');
+			} else if($etat.val() == ""){
+				$etat.css('background-color','red');
+			}
 		}
 	});
 
