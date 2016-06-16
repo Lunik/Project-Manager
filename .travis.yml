@@ -1,0 +1,23 @@
+notifications:
+  email: false
+language: node_js
+node_js:
+- '6'
+- '5'
+env:
+- PORT="5000"
+before_install:
+- sudo apt-get update -qq
+- sudo apt-get install curl
+script:
+- npm start &
+- sleep 10
+- curl http://localhost:$PORT
+- curl http://localhost:$PORT/socket.io/socket.io.js
+deploy:
+  provider: npm
+  email: guillaume.lunik@gmail.com
+  on:
+    tags: true
+  api_key:
+    secure: CTo4vkQCsu5itayPVtuivei7ljt2gbpppEW0RHd/CijQLrrBc4LRYw9Ug9IyJY2sh8I0o9K/MqR/rjrz3GFWdcO3+uhCPeujTwTsfE3MBJwl6lOSgnCebfVXMM9eDWu0Lo30pKiT8+20nSFeqx2BspPugctaau2paRWR3hXVEctDJ2Rz5l0wd2U+Hk1I10ut8MMsruvEZPYIhqMRniZ64ITHUgTkXjSBdwhwaHgNOGJzbLZASFgCLmSOVn3dSPWkFRbNzTdeBDDoeyDr1T5eXgY7tq9jLK9P0trVVK4a2d2WuG19DWoAPMw8fYTcGucvjaeG+g1m8asH/Y0imqV27wm3F8qAL0Dn5vqBIopcbHYy5j/or+O2y6+ZzF3UljsIhtVn4dT4rGk+tqfg/sPwZCqsf/lSn4MsVYaWHa1Bq3pQMXUaR//jOZhK5fYgE60PiiF69/WZ95jYJOEtCFdb92ksViHRwEpIFtErQLoR7EPh5I9DW69idhFq0xEi+6j0i1K4mBrERGX5pTh7NpvR6iCKuyUd4AW60Gexe/YphWs346UvkRUfbfnO/9wzcZTBIK9DFvkQkTL+x794IK1aHkcEnkFQ2Oh7dhcabvEjLcOBY5iBfSh/GeM4FlL1fPxOC31UuV76adMzwIlJfnSBEtSxcqfDq3OP6o6cQgkjlQg=
