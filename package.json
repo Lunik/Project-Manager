@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "description": "project manager",
   "dependencies": {
-    "express": "^4.13.3",
+    "express": "^4.14.0",
     "socket.io": "^1.4.6",
     "fs": "0.0.2"
   }
