@@ -6,14 +6,16 @@
 	<meta charset="UTF-8">
 
 	<link rel="stylesheet" href="src/css/style.css">
+	<link rel="stylesheet" href="src/bower_components/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="src/bower_components/popupjs/dist/popup.min.css">
 </head>
 <body>
 	<div class="newproject"><i class="fa fa-plus"></i><a>Nouveau Projet</a></div>
 	<h1 class="name"></h1>
 	<div class="container">
 		<div class="menu">
-			<div class="newtask"><i class="fa fa-plus"></i></div>
-			<div class="trash"><i class="fa fa-trash"></i></div>
+			<div class="newtask"><i class="fa fa-plus"> Nouvelle tache</i></div>
+			<div class="trash"><i class="fa fa-trash"> Supprimer</i></div>
 		</div>
 		<div class="tasks" id="normal">
 			<h3>Normal</h3>
@@ -36,9 +38,28 @@
 			</div>
 		</div>
 	</div>
-	<script src="src/js/jquery.min.js"></script>
-	<script src="src/js/jquery-ui.min.js"></script>
-	<script src="src/js/jquery-ui.touch-punch.min.js"></script>
+	<div class="popups" style="display: none">
+		<div class="popup" id="new_project">
+			<input type="text" name="name" placeholder="Nom...">
+			<input type="submit" value="Créer">
+		</div>
+		<div class="popup" id="new_task">
+			<input type="text" name="name" placeholder="Nom...">
+			<label for="status">Priorité: </label>
+			<select name="status">
+				<option value="normal">Normal</option>
+				<option value="urgent">Urgent</option>
+				<option value="very-urgent">Très Urgent</option>
+				<option value="done">Fini</option>
+			</select>
+			<textarea name="description" placeholder="Description..."></textarea>
+			<input type="submit" value="Créer">
+		</div>
+	</div>
+	<script src="src/bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="src/bower_components/jquery-ui/jquery-ui.min.js"></script>
+	<script src="src/bower_components/jquery-ui-touch-punch-improved/jquery.ui.touch-punch-improved.js"></script>
+	<script src="src/bower_components/popupjs/dist/popup.min.js"></script>
 	<script src="/socket.io/socket.io.js"></script>
 	<script src="src/js/app.js"></script>
 </body>

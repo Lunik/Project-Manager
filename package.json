@@ -1,10 +1,26 @@
 {
-  "name": "Project-Manager",
+  "name": "project-manager",
   "version": "1.0.1",
   "description": "project manager",
   "dependencies": {
-    "express": "^4.13.3",
-    "socket.io": "^1.4.6",
-    "fs": "0.0.2"
-  }
+    "bower": "^1.8.0",
+    "express": "^4.14.1",
+    "socket.io": "^1.7.3"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "install": "bower install --allow-root"
+  },
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lunik/Project-Manager.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lunik/Project-Manager/issues"
+  },
+  "homepage": "https://github.com/Lunik/Project-Manager#readme"
 }

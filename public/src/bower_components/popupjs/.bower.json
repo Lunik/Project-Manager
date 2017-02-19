@@ -1,0 +1,36 @@
+{
+  "name": "popupjs",
+  "version": "1.1.6",
+  "homepage": "https://github.com/Lunik/popupjs",
+  "authors": [
+    "Lunik <guillaume.lunik@gmail.com>"
+  ],
+  "description": "Modal window in JS",
+  "main": "src/popup.js",
+  "keywords": [
+    "popup",
+    "modal",
+    "js"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1"
+  },
+  "_release": "1.1.6",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.1.6",
+    "commit": "d588d2351f7143af08c778d30735957056b27bad"
+  },
+  "_source": "https://github.com/Lunik/popupjs.git",
+  "_target": "^1.1.6",
+  "_originalSource": "popupjs",
+  "_direct": true
+}

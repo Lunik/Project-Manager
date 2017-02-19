@@ -1,42 +1,42 @@
+initPopupProject()
+
 function displayProject(project){
-	$('h1.name').text(project.name);
+	$('h1.name').text(project.name)
 
 	for(var key in project.tasks){
-		displayTasks(key,project.tasks[key]);
+		displayTasks(key,project.tasks[key])
 	}
 }
 
 function changeProject(){
-	var hashval = window.location.hash.substr(1);
-	socket.emit('change project',hashval);
+	var hashval = window.location.hash.substr(1)
+	socket.emit('change project',hashval)
 }
 
-$(window).bind('hashchange',changeProject).trigger('hashchange');
+$(window).bind('hashchange',changeProject).trigger('hashchange')
 
 $('.newproject').click(function(){
-	var p = new Popup();
-	p.init(null, null, null, null, "Nouveaux Projet", newProjectHtml(),true);
-	p.draw();
-	socket.emit('new project',name);
-});
+	$.popupjs.init({
+		pos: {
+			x: null,
+			y: null
+		},
+		width: '50%',
+		height: '50%',
+		title: 'Nouveaux Projet',
+		html: $('.popup#new_project'),
+		closeBut: true
+	})
+	$.popupjs.draw()
+	socket.emit('new project',name)
+})
 
-function newProjectHtml(){
-	var $html = $('<div>').addClass('newProjectHtml');
-	var $name = $('<input>').attr('type',"text").attr('name',"name").attr('placeholder',"Nom...").appendTo($html)
-		.focus(function(){
-			$(this).css('background-color','')
-		});
-
-	$('<input>').attr('type',"submit").attr('value',"Créer").appendTo($html).click(function(){
-		if($name.val()){
-			socket.emit('new project',$name.val());
-			popupClose();
-		} else {
-			if($name.val() == ""){
-				$name.css('background-color','red');
-			}
+function initPopupProject(){
+	$('.popup#new_project input[type=submit]').click(function(){
+		var name = $('.popupHtml .popup#new_project input[name=name]').val()
+		if(name){
+			socket.emit('new project',name)
+			$.popupjs.remove()
 		}
-	});
-
-	return $html;
+	})
 }

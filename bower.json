@@ -1,0 +1,25 @@
+{
+  "name": "project-manager",
+  "description": "project manager",
+  "main": "server.js",
+  "authors": [
+    "Lunik <guillaume.lunik@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Lunik/Project-Manager",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/src/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "jquery-ui": "^1.12.1",
+    "jquery-ui-touch-punch-improved": "^0.3.1",
+    "popupjs": "^1.1.6",
+    "font-awesome": "^4.7.0"
+  }
+}
