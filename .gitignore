@@ -1,11 +1,7 @@
 .DS_Store
-
 ._*
-
 depot
-
 node_modules
-
 log*
-
+npm-debug.log
 projects/*.json
